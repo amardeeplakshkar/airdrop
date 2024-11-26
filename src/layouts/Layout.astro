@@ -2,7 +2,7 @@
 interface Props {
   title: string;
 }
-import './globals.css'
+import "./globals.css";
 const { title } = Astro.props;
 ---
 
@@ -10,24 +10,73 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Latest Crypto Airdrops and Opportunities" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta
+      name="description"
+      content="AirdropWatch - The ultimate source for the latest crypto airdrops, opportunities, and rewards. Discover and participate in verified airdrops to earn free tokens and crypto."
+    />
+    <meta
+      name="keywords"
+      content="airdrops, crypto airdrops, free crypto, earn tokens, blockchain airdrops, airdrop opportunities, cryptocurrency rewards, crypto news, airdrop list, verified airdrops"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="author" content="AirdropWatch" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      property="og:title"
+      content="AirdropWatch - Discover and Participate in the Latest Crypto Airdrops"
+    />
+    <meta
+      property="og:description"
+      content="AirdropWatch provides a curated list of the best airdrops, offering you the chance to earn free tokens and crypto. Stay updated with new airdrop opportunities and maximize your rewards."
+    />
+    <meta
+      property="og:image"
+      content="https://airdropwatch.vercel.app/og-image.jpg"
+    />
+    <meta property="og:url" content="https://airdropwatch.vercel.app/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="AirdropWatch - Your Source for Verified Crypto Airdrops"
+    />
+    <meta
+      name="twitter:description"
+      content="Discover the best crypto airdrops on AirdropWatch. Stay ahead with the latest airdrop opportunities and earn tokens for free."
+    />
+    <meta
+      name="twitter:image"
+      content="https://airdropwatch.vercel.app/twitter-image.jpg"
+    />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body class="bg-gray-50 dark:bg-gray-900 overflow-x-hidden">
-    <header class="fixed w-full bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-15 shadow-sm z-50">
+    <header
+      class="fixed w-full bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-15 shadow-sm z-50"
+    >
       <nav class="container mx-auto px-4 py-4">
         <div class="flex justify-between items-center">
           <a href="/" class="text-2xl font-bold text-primary">AirdropWatch</a>
-          
+
           <!-- Desktop Navigation -->
           <div class="hidden md:flex items-center space-x-6">
-            <a href="/" class="dark:text-neutral-100 hover:text-primary ">Home</a>
-            <a href="/airdrops" class="dark:text-neutral-100 hover:text-primary">Airdrops</a>
-            <a href="/guide" class="dark:text-neutral-100 hover:text-primary">Guide</a>
-            
+            <a
+              href="/"
+              class={`dark:text-neutral-100 hover:text-primary  ${Astro.url.pathname === "/" ? "border-primary border-b-2 text-primary font-bold" : ""}`}
+              >Home</a
+            >
+            <a
+              href="/airdrops"
+              class={`dark:text-neutral-100 hover:text-primary  ${Astro.url.pathname === "/airdrops" ? "text-primary border-primary border-b-2 font-bold" : ""}`}
+              >Airdrops</a
+            >
+            <a
+              href="/guide"
+              class={`dark:text-neutral-100 hover:text-primary  ${Astro.url.pathname === "/guide" ? "border-primary border-b-2 text-primary font-bold" : ""}`}
+              >Guide</a
+            >
+
             <!-- Dark Mode Toggle -->
             <button
               id="theme-toggle"
@@ -94,27 +143,46 @@ const { title } = Astro.props;
                 ></path>
               </svg>
             </button>
-            
-            <button 
-              id="mobile-menu-button" 
+
+            <button
+              id="mobile-menu-button"
               class="dark:text-neutral-100 focus:outline-none"
               aria-label="Toggle menu"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"></path>
               </svg>
             </button>
           </div>
         </div>
 
         <!-- Mobile Navigation Menu -->
-        <div 
-          id="mobile-menu" 
-          class="hidden md:hidden mt-4 pb-4"
-        >
-          <a href="/" class="block py-2 dark:text-neutral-100 hover:text-primary ">Home</a>
-          <a href="/airdrops" class="block py-2 dark:text-neutral-100 hover:text-primary ">Airdrops</a>
-          <a href="/guide" class="block py-2 dark:text-neutral-100 hover:text-primary ">Guide</a>
+        <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+          <a
+            href="/"
+            class={`block py-2 text-center rounded-xl hover:text-primary dark:text-neutral-100  ${Astro.url.pathname === "/" ? "border-primary max-sm:bg-secondary/25 border-b-2 text-primary font-bold" : ""}`}
+            >Home</a
+          >
+          <a
+            href="/airdrops"
+            class={`block py-2  text-center rounded-xl hover:text-primary dark:text-neutral-100  ${Astro.url.pathname === "/airdrops" ? "border-primary  max-sm:bg-secondary/25 border-b-2 text-primary font-bold" : ""}`}
+            >Airdrops</a
+          >
+          <a
+            href="/guide"
+            class={`block py-2  text-center rounded-xl hover:text-primary dark:text-neutral-100  ${Astro.url.pathname === "/guide" ? "border-primary max-sm:bg-secondary/25 border-b-2 text-primary font-bold" : ""}`}
+            >Guide</a
+          >
         </div>
       </nav>
     </header>
@@ -126,7 +194,9 @@ const { title } = Astro.props;
     <footer class="bg-white dark:bg-gray-800 shadow-inner">
       <div class="container mx-auto px-4 py-8">
         <div class="text-center text-gray-600 dark:text-gray-300">
-          <p>&copy; {new Date().getFullYear()} AirdropWatch. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} AirdropWatch. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
@@ -134,14 +204,34 @@ const { title } = Astro.props;
     <script>
       // Theme toggle functionality
       function updateTheme() {
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-          document.documentElement.classList.add('dark');
-          document.querySelectorAll('#theme-toggle-dark-icon, #theme-toggle-dark-icon-mobile').forEach(el => el.classList.remove('hidden'));
-          document.querySelectorAll('#theme-toggle-light-icon, #theme-toggle-light-icon-mobile').forEach(el => el.classList.add('hidden'));
+        if (
+          localStorage.theme === "dark" ||
+          (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+          document.documentElement.classList.add("dark");
+          document
+            .querySelectorAll(
+              "#theme-toggle-dark-icon, #theme-toggle-dark-icon-mobile",
+            )
+            .forEach((el) => el.classList.remove("hidden"));
+          document
+            .querySelectorAll(
+              "#theme-toggle-light-icon, #theme-toggle-light-icon-mobile",
+            )
+            .forEach((el) => el.classList.add("hidden"));
         } else {
-          document.documentElement.classList.remove('dark');
-          document.querySelectorAll('#theme-toggle-dark-icon, #theme-toggle-dark-icon-mobile').forEach(el => el.classList.add('hidden'));
-          document.querySelectorAll('#theme-toggle-light-icon, #theme-toggle-light-icon-mobile').forEach(el => el.classList.remove('hidden'));
+          document.documentElement.classList.remove("dark");
+          document
+            .querySelectorAll(
+              "#theme-toggle-dark-icon, #theme-toggle-dark-icon-mobile",
+            )
+            .forEach((el) => el.classList.add("hidden"));
+          document
+            .querySelectorAll(
+              "#theme-toggle-light-icon, #theme-toggle-light-icon-mobile",
+            )
+            .forEach((el) => el.classList.remove("hidden"));
         }
       }
 
@@ -149,14 +239,14 @@ const { title } = Astro.props;
       updateTheme();
 
       // Theme toggle event listeners
-      ['theme-toggle', 'theme-toggle-mobile'].forEach(id => {
+      ["theme-toggle", "theme-toggle-mobile"].forEach((id) => {
         const button = document.getElementById(id);
         if (button) {
-          button.addEventListener('click', () => {
-            if (document.documentElement.classList.contains('dark')) {
-              localStorage.theme = 'light';
+          button.addEventListener("click", () => {
+            if (document.documentElement.classList.contains("dark")) {
+              localStorage.theme = "light";
             } else {
-              localStorage.theme = 'dark';
+              localStorage.theme = "dark";
             }
             updateTheme();
           });
@@ -164,19 +254,21 @@ const { title } = Astro.props;
       });
 
       // Mobile menu toggle
-      const mobileMenuButton = document.getElementById('mobile-menu-button');
-      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
 
       if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', () => {
-          mobileMenu.classList.toggle('hidden');
+        mobileMenuButton.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
         });
 
         // Close menu when clicking outside
-        document.addEventListener('click', (event) => {
-          if (!mobileMenuButton.contains(event.target as Node) && 
-              !mobileMenu.contains(event.target as Node)) {
-            mobileMenu.classList.add('hidden');
+        document.addEventListener("click", (event) => {
+          if (
+            !mobileMenuButton.contains(event.target as Node) &&
+            !mobileMenu.contains(event.target as Node)
+          ) {
+            mobileMenu.classList.add("hidden");
           }
         });
       }

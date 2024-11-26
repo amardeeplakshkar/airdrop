@@ -6,7 +6,10 @@ import AirdropCard from '../../components/AirdropCard.astro';
 const airdrops = await getCollection('airdrops');
 airdrops.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-const formatDate = (date: Date) => {
+const formatDate = (date: Date | undefined | null) => {
+  if (!date) {
+    return 'Not Announced Yet';
+  }
   return date.toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',

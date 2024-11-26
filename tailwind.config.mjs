@@ -18,13 +18,13 @@ export default {
   			},
   			move3: {
   				'0%': {
-  					transform: 'rotate(1deg) translate(0)'
+  					transform: 'rotate(5deg) translate(0)'
   				},
   				'50%': {
-  					transform: 'rotate(-1deg) translate(30px)'
+  					transform: 'rotate(-5deg) translate(30px)'
   				},
   				'100%': {
-  					transform: 'rotate(1deg) translate(0)'
+  					transform: 'rotate(5deg) translate(0)'
   				}
   			},
   			move4: {
