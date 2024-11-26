@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+img{
+    user-select: none;
+    pointer-events: none;   
+}
+
+@layer utilities{
+    .clip{
+      clip-path: polygon(0 0, 85% 0, 100% 30%, 100% 100%, 100% 100%, 15% 100%, 0 75%, 0% 30%);
+    }
+}

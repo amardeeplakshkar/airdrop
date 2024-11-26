@@ -1,0 +1,101 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const guides = [
+  {
+    title: "Getting Started",
+    content: "Learn the basics of participating in crypto airdrops safely and effectively.",
+    icon: "🚀"
+  },
+  {
+    title: "Wallet Security",
+    content: "Essential tips for keeping your crypto wallet secure while participating in airdrops.",
+    icon: "🔒"
+  },
+  {
+    title: "Avoiding Scams",
+    content: "How to identify and avoid common airdrop scams and fraudulent projects.",
+    icon: "⚠️"
+  }
+];
+
+const steps = [
+  {
+    number: "01",
+    title: "Create a Wallet",
+    description: "Set up a secure Web3 wallet like MetaMask or Trust Wallet."
+  },
+  {
+    number: "02",
+    title: "Fund Your Wallet",
+    description: "Add necessary funds to cover gas fees and requirements."
+  },
+  {
+    number: "03",
+    title: "Complete Tasks",
+    description: "Follow project-specific requirements and maintain activity."
+  },
+  {
+    number: "04",
+    title: "Wait for Snapshot",
+    description: "Keep assets until the project takes their snapshot."
+  }
+];
+---
+
+<Layout title="Airdrop Guide - AirdropWatch">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        Complete Airdrop Guide
+      </h1>
+      <p class="text-xl text-gray-600 dark:text-gray-300">
+        Learn how to participate in airdrops safely and maximize your rewards
+      </p>
+    </div>
+
+    <section class="mb-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {guides.map(guide => (
+          <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md">
+            <div class="text-4xl mb-4">{guide.icon}</div>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+              {guide.title}
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300">{guide.content}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+        Step-by-Step Process
+      </h2>
+      <div class="space-y-6">
+        {steps.map(step => (
+          <div class="flex items-start gap-4 bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+            <div class="text-3xl font-bold text-primary">{step.number}</div>
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                {step.title}
+              </h3>
+              <p class="text-gray-600 dark:text-gray-300">{step.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="bg-primary text-white rounded-lg p-8">
+      <h2 class="text-2xl font-bold mb-4">Safety Tips</h2>
+      <ul class="list-disc list-inside space-y-3">
+        <li>Never share your private keys or seed phrase</li>
+        <li>Use a separate wallet for airdrops</li>
+        <li>Research projects thoroughly before participating</li>
+        <li>Be cautious of projects requiring upfront payments</li>
+        <li>Verify official links and social media accounts</li>
+      </ul>
+    </section>
+  </div>
+</Layout>

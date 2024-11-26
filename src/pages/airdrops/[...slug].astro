@@ -1,0 +1,63 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { format } from 'date-fns';
+
+export async function getStaticPaths() {
+  const airdrops = await getCollection('airdrops');
+  return airdrops.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const formatDate = (date: Date) => format(date, 'MMMM d, yyyy');
+---
+
+<Layout title={`${entry.data.title} - AirdropWatch`}>
+  <article class="max-w-4xl mx-auto">
+    <div class="mb-8">
+      <img 
+        src={entry.data.image} 
+        alt={entry.data.title}
+        class="w-full h-64 object-cover rounded-lg shadow-lg mb-6"
+      />
+      
+      <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        {entry.data.title}
+      </h1>
+      
+      <div class="flex flex-wrap gap-4 mb-6">
+        <span class="px-3 py-1 bg-primary text-white rounded-full text-sm">
+          Value: {entry.data.value}
+        </span>
+        <span class="px-3 py-1 bg-secondary text-white rounded-full text-sm">
+          Ends: {formatDate(entry.data.endDate)}
+        </span>
+        <span class={`px-3 py-1 rounded-full text-sm ${
+          entry.data.difficulty === 'easy' ? 'bg-green-500' :
+          entry.data.difficulty === 'medium' ? 'bg-yellow-500' :
+          'bg-red-500'
+        } text-white`}>
+          {entry.data.difficulty.charAt(0).toUpperCase() + entry.data.difficulty.slice(1)}
+        </span>
+      </div>
+
+      <div class="bg-gray-100 dark:bg-gray-800 rounded-lg p-6 mb-8">
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Requirements</h2>
+        <ul class="list-disc list-inside space-y-2">
+          {entry.data.requirements.map((req: string) => (
+            <li class="text-gray-700 dark:text-gray-300">{req}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="prose dark:prose-invert max-w-none">
+      <Content />
+    </div>
+  </article>
+</Layout>

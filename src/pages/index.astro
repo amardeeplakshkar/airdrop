@@ -1,0 +1,102 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AirdropCard from '../components/AirdropCard.astro';
+import { getCollection } from 'astro:content';
+const allAirdrops = await getCollection('airdrops');
+allAirdrops.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const formatDate = (date: Date) => {
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+};
+---
+
+<Layout title="AirdropWatch - Latest Crypto Airdrops">
+  <main class="h-[85dvh] bg-cover bg-center m-0 flex items-center px-8 mt-[-4rem] pt-20 md:px-16" style={{ backgroundImage: `url(/bg-slider.png)` }}>
+    <div class="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <!-- Left: Text Content -->
+      <div>
+        <h1 class="text-4xl md:text-6xl font-bold leading-tight  dark:text-white mb-4">
+          Unlock Exclusive Crypto Rewards
+        </h1>
+        <p class="text-lg md:text-xl dark:text-gray-200 font-medium">
+          Dive into the latest airdrops, earn tokens, and be part of the next big thing in blockchain.
+        </p>
+        <a href={`/airdrops`}>
+          <button class="mt-6 bg-primary text-white py-3 font-bold px-6 rounded-md hover:bg-blue-600 transition-colors duration-300 clip">
+            Get Started
+          </button>
+        </a>
+      </div>
+  
+      <!-- Right: Image -->
+      <div class="flex justify-center relative">
+        <img src="/Furore.png" alt="Crypto Rewards" class="relative z-10 animate-move3 h-[20rem] aspect-square max-w-md md:max-w-md rounded-lg" />
+        <img src="/icon_1.png" alt="" class="h-24 absolute animate-move5 bottom-0 left-0"/>
+        <img src="/icon_3.png" alt="" class="h-24 absolute animate-move4 top-0 left-32"/>
+        <img src="/icon_2.png" alt="" class="h-24 absolute animate-move4 right-0 bottom-0"/>
+      </div>
+    </div>
+  </main>
+  
+  
+  <section class="mb-12 container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+        Discover Latest Crypto Airdrops
+      </h1>
+      <p class="text-xl text-gray-600 dark:text-gray-300">
+        Stay updated with the most promising cryptocurrency airdrops
+      </p>
+    </div>
+
+    <div class="grid max-sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {allAirdrops.map(airdrop => (
+        <AirdropCard
+          title={airdrop.data.title}
+          description={airdrop.data.description}
+          value={airdrop.data.value}
+          endDate={formatDate(airdrop.data.endDate)}
+          requirements={airdrop.data.requirements}
+          image={airdrop.data.image}
+        />
+      ))}
+    </div>
+
+    <div class="text-center mt-8">
+      <a
+        href="/airdrops"
+        class="inline-block bg-primary text-white py-3 px-6 rounded-md hover:bg-blue-600 transition-colors duration-300 clip"
+      >
+        View All Airdrops
+      </a>
+    </div>
+  </section>
+
+  <section class="bg-gray-100 dark:bg-gray-800 rounded-lg p-8 mb-12">
+    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Why Choose AirdropWatch?</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="text-center">
+        <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Verified Airdrops</h3>
+          <p class="text-gray-600 dark:text-gray-300">All airdrops are thoroughly researched and verified for legitimacy</p>
+        </div>
+      </div>
+      <div class="text-center">
+        <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Real-time Updates</h3>
+          <p class="text-gray-600 dark:text-gray-300">Get instant notifications about new airdrops and deadlines</p>
+        </div>
+      </div>
+      <div class="text-center">
+        <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Detailed Guides</h3>
+          <p class="text-gray-600 dark:text-gray-300">Step-by-step instructions to participate in airdrops</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
