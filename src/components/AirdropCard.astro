@@ -14,7 +14,7 @@ const { title, description, value, endDate, requirements, image } = Astro.props;
 const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 ---
 
-<article class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 group">
+<article class="bg-white clip2 dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 group ">
   <a href={`/airdrops/${slug}`} class="block">
     <img src={image} alt={title} class="ease-in-out w-full h-48 object-cover" />
     <div class="p-6">
