@@ -1,13 +1,15 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
-import node from '@astrojs/node'; // Import the Node adapter
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  integrations: [
-    tailwind(),
-    mdx()
-  ],
+  site: 'https://airdropwatch.vercel.app',
+  integrations: [tailwind(), mdx(), sitemap({
+      changefreq: 'weekly',
+      priority: 0.8,
+      lastmod: new Date('2024-11-28'),
+  })],
   markdown: {
     shikiConfig: {
       theme: 'dracula'
