@@ -1,6 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import Image from "astro/components/Image.astro";
+export const prerender = true;
 import { format } from "date-fns";
 
 export async function getStaticPaths() {
@@ -31,9 +33,14 @@ const formatDate = (date: Date | string | undefined | null) => {
 <Layout title={`${entry.data.title} - AirdropWatch`}>
   <article class="max-w-4xl mx-auto px-2">
     <div class="mb-8">
-      <img
-        src={entry.data.image}
-        alt={entry.data.title}
+      <Image
+        width="50"
+        height="50"
+        decoding="async"
+        src={entry.data.image ||
+          `https://placehold.co/600x400?text=${entry.data.title}`}
+        alt={entry.data.title || "Airdrop Image"}
+        loading="eager"
         class="w-full h-64 object-cover rounded-lg shadow-lg mb-6"
       />
 
@@ -101,8 +108,11 @@ const formatDate = (date: Date | string | undefined | null) => {
             Join Our Telegram For More Exciting Airdrops And Updates
           </h5>
           <div class="flex justify-center items-center group-hover:scale-110">
-            <div class=" flex items-center text-center">
-              <img
+            <div class="flex items-center text-center">
+              <Image
+                width="50"
+                height="50"
+                decoding="async"
                 src="https://em-content.zobj.net/source/telegram/386/rocket_1f680.webp"
                 alt=""
                 class="h-12 aspect-square"
