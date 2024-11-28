@@ -8,9 +8,6 @@ export default defineConfig({
     tailwind(),
     mdx()
   ],
-  output: 'server',  // Ensure server-side rendering for dynamic pages
-  adapter: node({
-  mode: 'standalone',}),
   markdown: {
     shikiConfig: {
       theme: 'dracula'
