@@ -2,6 +2,7 @@
 interface Props {
   title: string;
 }
+import Image  from "astro/components/Image.astro";
 import "./globals.css";
 const { title } = Astro.props;
 ---
@@ -57,7 +58,9 @@ const { title } = Astro.props;
     >
       <nav class="container mx-auto px-4 py-4">
         <div class="flex justify-between items-center">
-          <a href="/" class="text-2xl font-bold text-primary">AirdropWatch</a>
+          <a href="/" class="text-2xl font-bold text-primary">
+            <Image class="dark:invert-0 invert" src={'/logo.png'} alt="AirdropWatch Logo" height={150} width={150} loading="eager" /> 
+          </a>
 
           <!-- Desktop Navigation -->
           <div class="hidden md:flex items-center space-x-6">
@@ -193,7 +196,10 @@ const { title } = Astro.props;
 
     <footer class="bg-white dark:bg-gray-800 shadow-inner">
       <div class="container mx-auto px-4 py-8">
-        <div class="text-center text-gray-600 dark:text-gray-300">
+        <div class="flex justify-center items-center flex-col text-center text-gray-600 dark:text-gray-300">
+          <a href="/" class="text-2xl font-bold text-primary">
+            <Image class="dark:invert-0 invert" src={'/logo.png'} alt="AirdropWatch Logo" height={150} width={150} loading="lazy" /> 
+          </a>
           <p>
             &copy; {new Date().getFullYear()} AirdropWatch. All rights reserved.
           </p>
