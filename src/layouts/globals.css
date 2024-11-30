@@ -15,3 +15,28 @@ img{
       clip-path: polygon(0 0, 95% 0, 100% 5%, 100% 100%, 100% 100%, 5% 100%, 0 95%, 0% 0%);
     }
 }
+
+
+/* =======CUSTOM SCROLLBAR========= */
+
+::-webkit-scrollbar {
+  width: .25rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #0057b7;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+html {
+  scrollbar-color: #0057b7 transparent;
+  scrollbar-width: auto;
+}
+
+html:hover {
+  scrollbar-color: #0057b7 transparent;
+}

@@ -66,8 +66,10 @@ export default {
   			rainbow: 'rainbow var(--speed, 2s) infinite linear'
   		},
       colors: {
-        primary: '#3B82F6',
+        primary: '#0057b7',
         secondary: '#1E293B',
+		'red-500' : '#b22222',
+		white:'#ffffff'
       },
       typography: {
         DEFAULT: {

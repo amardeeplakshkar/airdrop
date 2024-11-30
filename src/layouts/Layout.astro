@@ -16,9 +16,9 @@ const { title } = Astro.props;
       content="AirdropWatch - The ultimate source for the latest crypto airdrops, opportunities, and rewards. Discover and participate in verified airdrops to earn free tokens and crypto."
     />
     <meta
-      name="keywords"
-      content="airdrops, crypto airdrops, free crypto, earn tokens, blockchain airdrops, airdrop opportunities, cryptocurrency rewards, crypto news, airdrop list, verified airdrops"
-    />
+  name="keywords"
+  content="airdrops, crypto airdrops, free crypto, earn tokens, blockchain airdrops, airdrop opportunities, cryptocurrency rewards, crypto news, airdrop list, verified airdrops, AirdropWatch, Airdrop Watch, AirdropWatch verified, AirdropWatch list, free tokens, new airdrops, crypto giveaways, trusted airdrops"
+ />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="author" content="AirdropWatch" />
@@ -33,7 +33,7 @@ const { title } = Astro.props;
     />
     <meta
       property="og:image"
-      content="https://airdropwatch.vercel.app/og-image.jpg"
+      content="https://airdropwatch.vercel.app/og-image.png"
     />
     <meta property="og:url" content="https://airdropwatch.vercel.app/" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -47,7 +47,7 @@ const { title } = Astro.props;
     />
     <meta
       name="twitter:image"
-      content="https://airdropwatch.vercel.app/twitter-image.jpg"
+      content="https://airdropwatch.vercel.app/og-image.png"
     />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
@@ -59,7 +59,7 @@ const { title } = Astro.props;
       <nav class="container mx-auto px-4 py-4">
         <div class="flex justify-between items-center">
           <a href="/" class="text-2xl font-bold text-primary">
-            <Image class="dark:invert-0 invert" src={'/logo.png'} alt="AirdropWatch Logo" height={150} width={150} loading="eager" /> 
+            <Image class="dark:invert-0 invert" src='https://res.cloudinary.com/duscymcfc/image/upload/f_auto,q_auto/v1/AirdropWatch/airdropwatch-logo' alt="AirdropWatch Logo" height={150} width={150} loading="eager" /> 
           </a>
 
           <!-- Desktop Navigation -->
